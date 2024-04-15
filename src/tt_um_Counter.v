@@ -24,9 +24,9 @@ module tt_um_Counter_shivam (
   assign uio_out = 0;
   assign uio_oe  = 0;
 
-    always@(posedge clk)
+    always@(posedge clk or posedge rst)
 begin 
-    if(!rst)
+    if( rst)
 out <=0;
 else
     out<= out +1;
