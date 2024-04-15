@@ -26,8 +26,6 @@ reg [9:0] out_decimal;
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
   assign uio_oe  = 0;
-  assign ui_in[0] =up_dowm;
-   assign ui_in[1]=hold;
     assign uo_out[0] = out;
     assign uo_out[1]= out_binary;
     assign uo_out[2]= out_hexadecimal;
@@ -38,9 +36,9 @@ always @(posedge clk or posedge rst)
 begin
     if (rst)
         out <= 0;
-    else if (hold)
+    else if (ui_in[1])
         out<= out;
-    else if (up_down)
+    else if (ui_in[0])
         out<= out + 1;
     else
         out<= out - 1;
