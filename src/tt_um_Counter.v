@@ -17,16 +17,15 @@ module tt_um_Counter_shivam (
 );
  
     reg[31:0] out;
- assign rst = rst_n;
- assign uo_out = out;
+ assign rst_n = rst;
+   
 
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
   assign uio_oe  = 0;
-  assign rst_n =rst;
   assign ui_in[0] =up_dowm;
    assign ui_in[1]=hold;
-    assign uo_out[0] =out;
+     assign uo_out = out[0];
     assign uo_out[1]= out_binary;
     assign uo_out[2]= out_hexadecimal;
     assign uo_out[3]= out_decimal;
