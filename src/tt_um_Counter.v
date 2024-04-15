@@ -15,8 +15,11 @@ module tt_um_Counter_shivam (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
- 
-    reg[31:0] out;
+ // Internal registers
+reg [31:0] out;
+reg [31:0] out_binary;
+reg [7:0] out_hexadecimal;
+reg [9:0] out_decimal;
  assign rst_n = rst;
    
 
@@ -25,42 +28,30 @@ module tt_um_Counter_shivam (
   assign uio_oe  = 0;
   assign ui_in[0] =up_dowm;
    assign ui_in[1]=hold;
-     assign uo_out = out[0];
+    assign uo_out[0] = out;
     assign uo_out[1]= out_binary;
     assign uo_out[2]= out_hexadecimal;
     assign uo_out[3]= out_decimal;
     
-// Internal registers
-reg [31:0] count_reg;
-reg [31:0] binary_reg;
-reg [7:0] hexadecimal_reg;
-reg [9:0] decimal_reg;
-
 // Counter logic
 always @(posedge clk or posedge rst)
 begin
     if (rst)
-        count_reg <= 0;
+        out <= 0;
     else if (hold)
-        count_reg <= count_reg;
+        out<= out;
     else if (up_down)
-        count_reg <= count_reg + 1;
+        out<= out + 1;
     else
-        count_reg <= count_reg - 1;
+        out<= out - 1;
 end
 
 // Convert count to binary, hexadecimal, and decimal
 always @(*)
 begin
-    binary_reg = count_reg;
-    hexadecimal_reg = count_reg;
-    decimal_reg = count_reg;
+    out_binary = out;
+    out_hexadecimal = out;
+    out_decimal = out;
 end
-
-// Output assignments
-assign out = count_reg;
-assign out_binary = binary_reg;
-assign out_hexadecimal = hexadecimal_reg;
-assign out_decimal = decimal_reg;
 
 endmodule
