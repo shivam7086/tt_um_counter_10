@@ -20,7 +20,6 @@ reg [31:0] out;
 reg [31:0] out_binary;
 reg [7:0] out_hexadecimal;
 reg [9:0] out_decimal;
- assign rst_n = rst;
    
 
   // All output pins must be assigned. If not used, assign to 0.
@@ -32,9 +31,9 @@ reg [9:0] out_decimal;
     assign uo_out[3]= out_decimal;
     
 // Counter logic
-always @(posedge clk or posedge rst)
+    always @(posedge clk or posedge rst_n)
 begin
-    if (rst)
+    if (rst_n)
         out <= 0;
     else if (ui_in[1])
         out<= out;
