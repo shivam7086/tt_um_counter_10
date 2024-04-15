@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-A 10-bit binary counter utilizes 10 D flip-flops, where each flip-flop's output connects to the next flip-flop's input. Clocking the first flip-flop initiates counting. With each clock pulse, the counter increments in binary from 0000000000 to 1111111111, spanning decimal values 0 to 1023.
+The Verilog module "counter_32 bit" implements a 32-bit binary counter with clock (`clk`), reset (`rst`), and output (`out`). Upon a clock rising edge or reset assertion, it resets the output to 0 or increments it by 1, respectively. This design facilitates counting operations in digital systems, maintaining a 32-bit output range.
 
 
 ## How to test
