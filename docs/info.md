@@ -9,12 +9,13 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-This is a Chisel template
+A 10-bit binary counter utilizes 10 D flip-flops, where each flip-flop's output connects to the next flip-flop's input. Clocking the first flip-flop initiates counting. With each clock pulse, the counter increments in binary from 0000000000 to 1111111111, spanning decimal values 0 to 1023.
+
 
 ## How to test
 
-Currently cocotb, shall change to ChiselTest
+We test it on Vivado and open sources (OpenROAD and OpenLane). 
 
 ## External hardware
 
-non by default
+defaults  
