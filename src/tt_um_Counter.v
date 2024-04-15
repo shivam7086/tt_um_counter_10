@@ -16,7 +16,7 @@ module tt_um_Counter_shivam (
     input  wire       rst_n     // reset_n - low to reset
 );
  
-    reg[9:0] out;
+    reg[31:0] out;
  assign rst = rst_n;
  assign uo_out = out;
 
