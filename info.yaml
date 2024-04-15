@@ -1,6 +1,6 @@
 
 # Tiny Tapeout project information
-project:  # design a Linear feedback shift register.
+project:  # design 32 bit binary counter.
   title: "32-bit Binary Counter"  # Project title
   author: "Aryan kannaujiya, Shivam Bhardwaj and Ambika Prasad Shah"  # Your name
   discord: "ICResQ Lab"  # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
