@@ -33,16 +33,16 @@ reg [7:0] next_count;
     always @(posedge clk or posedge rst_n) begin
         if (rst_n) begin
         count <= 8'b00000000; // Reset counter
-    end else if (ui_in [0] && ~ui_in [1]) begin
+        end else if (ui_in [2] && ~ui_in [3]) begin
         count <= count + 1; // Increment counter
-    end else if (ui_in [1] && ~ui_in [0]) begin
+        end else if (ui_in [3] && ~ui_in [2]) begin
         count <= count - 1; // Decrement counter
     end
 end
 
 // Hold logic
 always @(posedge clk) begin
-    if (ui_in [2]) begin
+    if (ui_in [4]) begin
         next_count <= count; // Freeze current count
     end else begin
         next_count <= next_count; // Update count normally
