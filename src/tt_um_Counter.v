@@ -19,9 +19,9 @@ module tt_um_Counter_shivam (
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
   assign uio_oe  = 0;
-  assign ui_in [0] = up;          // Up count input
-  assign ui_in [1] = down;         // Down count input
-   assign ui_in [2] = hold;         // Hold input
+    assign ui_in [0] = up[0];          // Up count input
+    assign ui_in [1] = down[1];         // Down count input
+    assign ui_in [2] = hold[2];         // Hold input
       reg  [7:0] count; // 8-bit counter output
     reg  [7:0] hex;   // Hexadecimal output
     reg  [7:0] dec;   // Decimal output
@@ -33,19 +33,19 @@ module tt_um_Counter_shivam (
 reg [7:0] next_count;
 
 // Counter logic
-always @(posedge clk or posedge rst) begin
+    always @(posedge clk or posedge rst_n) begin
     if (rst) begin
         count <= 8'b00000000; // Reset counter
-    end else if (up && ~down) begin
+    end else if (up[0] && ~down[1]) begin
         count <= count + 1; // Increment counter
-    end else if (down && ~up) begin
+    end else if (down[1] && ~up[0]) begin
         count <= count - 1; // Decrement counter
     end
 end
 
 // Hold logic
 always @(posedge clk) begin
-    if (hold) begin
+    if (hold[2]) begin
         next_count <= count; // Freeze current count
     end else begin
         next_count <= next_count; // Update count normally
