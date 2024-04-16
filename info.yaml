@@ -16,17 +16,17 @@ pinout:  # The pinout of your project. Leave unused pins blank. DO NOT delete or
   # Inputs
   ui[0]: "clk"
   ui[1]: "rst"
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
+  ui[2]: "ui_in[2]" # up count pin
+  ui[3]: "ui_in[3]"  # down count pin
+  ui[4]: "ui_in[4]"   # hold pin for freeze the present value 
   ui[5]: ""
   ui[6]: ""
   ui[7]: ""
 
   # Outputs
-  uo[0]: "out"
-  uo[1]: ""
-  uo[2]: ""
+  uo[0]: "out" 
+  uo[1]: "hex"
+  uo[2]: "dec"
   uo[3]: ""
   uo[4]: ""
   uo[5]: ""
