@@ -25,10 +25,10 @@ reg [9:0] out_decimal;
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
   assign uio_oe  = 0;
-    assign uo_out[31:0] = out;
-    assign uo_out[31:0]= out_binary;
-    assign uo_out[7:0]= out_hexadecimal;
-    assign uo_out[9:0]= out_decimal;
+    assign uo_out= out;
+    assign uo_out= out_binary;
+    assign uo_out= out_hexadecimal;
+    assign uo_out= out_decimal;
     
 // Counter logic
     always @(posedge clk or posedge rst_n)
