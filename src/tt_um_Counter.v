@@ -15,40 +15,48 @@ module tt_um_Counter_shivam (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
- // Internal registers
-    reg [7:0] out;
-    reg [7:0] out_binary;
-    reg [2:0] out_hexadecimal;
-    reg [2:0] out_decimal;
-   
 
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
   assign uio_oe  = 0;
-    assign uo_out[7:0] = out;
-    assign uo_out[7:0] = out_binary;
-    assign uo_out[7:0] = out_hexadecimal;
-    assign uo_out[7:0] = out_decimal;
-    
+  assign ui_in [0] = up;          // Up count input
+  assign ui_in [1] = down;         // Down count input
+   assign ui_in [2] = hold;         // Hold input
+      reg  [7:0] count; // 8-bit counter output
+    reg  [7:0] hex;   // Hexadecimal output
+    reg  [7:0] dec;   // Decimal output
+
+  assign uo_out[7:0] =count;
+  assign uo_out[7:0] = hex;
+  assign uo_out[7:0] =dec;
+// Internal signals
+reg [7:0] next_count;
+
 // Counter logic
-    always @(posedge clk or posedge rst_n)
-begin
-    if (rst_n)
-        out <= 0;
-    else if (ui_in[1])
-        out<= out;
-    else if (ui_in[0])
-        out<= out + 1;
-    else
-        out<= out - 1;
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        count <= 8'b00000000; // Reset counter
+    end else if (up && ~down) begin
+        count <= count + 1; // Increment counter
+    end else if (down && ~up) begin
+        count <= count - 1; // Decrement counter
+    end
 end
 
-// Convert count to binary, hexadecimal, and decimal
-always @(*)
-begin
-    out_binary = out;
-    out_hexadecimal = out;
-    out_decimal = out;
+// Hold logic
+always @(posedge clk) begin
+    if (hold) begin
+        next_count <= count; // Freeze current count
+    end else begin
+        next_count <= next_count; // Update count normally
+    end
+end
+
+// Output display logic
+always @(*) begin
+    hex = count; // Hexadecimal output
+    dec = count; // Decimal output
 end
 
 endmodule
+
