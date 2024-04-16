@@ -16,19 +16,19 @@ module tt_um_Counter_shivam (
     input  wire       rst_n     // reset_n - low to reset
 );
  // Internal registers
-reg [31:0] out;
-reg [31:0] out_binary;
-reg [7:0] out_hexadecimal;
-reg [9:0] out_decimal;
+    reg [7:0] out;
+    reg [7:0] out_binary;
+    reg [2:0] out_hexadecimal;
+    reg [2:0] out_decimal;
    
 
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
   assign uio_oe  = 0;
-    assign uo_out= out;
-    assign uo_out= out_binary;
-    assign uo_out= out_hexadecimal;
-    assign uo_out= out_decimal;
+    assign uo_out[7:0] = out;
+    assign uo_out[7:0] = out_binary;
+    assign uo_out[7:0] = out_hexadecimal;
+    assign uo_out[7:0] = out_decimal;
     
 // Counter logic
     always @(posedge clk or posedge rst_n)
