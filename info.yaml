@@ -1,7 +1,7 @@
 
 # Tiny Tapeout project information
 project:  # design 32 bit binary counter.
-  title: "32-bit Binary Counter"  # Project title
+  title: "8-bit Binary Counter"  # Project title
   author: "Aryan kannaujiya, Shivam Bhardwaj and Ambika Prasad Shah"  # Your name
   discord: "ICResQ Lab"  # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description: " This Verilog module defines a synchronous 32-bit counter, where the count increments on each rising edge of the clock input (clk). Additionally, it features an asynchronous reset input (rst), which, when activated, sets the counter output (out) to zero regardless of the clock signal."
