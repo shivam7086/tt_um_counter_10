@@ -3,7 +3,7 @@
 project:  # design 32 bit binary counter.
   title: "8-bit Binary Counter"  # Project title
   author: "Aryan kannaujiya, Shivam Bhardwaj and Ambika Prasad Shah"  # Your name
-  discord: "ICResQ Lab"  # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  discord: "IC-ResQ Lab"  # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description: " This Verilog module defines a synchronous 32-bit counter, where the count increments on each rising edge of the clock input (clk). Additionally, it features an asynchronous reset input (rst), which, when activated, sets the counter output (out) to zero regardless of the clock signal."
   language: "Verilog"  # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz: 50000000  # Clock frequency in Hz (or 0 if not applicable)
