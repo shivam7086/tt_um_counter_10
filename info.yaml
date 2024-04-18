@@ -4,7 +4,7 @@ project:  # design 32 bit binary counter.
   title: "8-bit Binary Counter"  # Project title
   author: "Aryan kannaujiya, Shivam Bhardwaj and Ambika Prasad Shah"  # Your name
   discord: "IC-ResQ Lab"  # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description: " This Verilog module defines a synchronous 32-bit counter, where the count increments on each rising edge of the clock input (clk). Additionally, it features an asynchronous reset input (rst), which, when activated, sets the counter output (out) to zero regardless of the clock signal."
+  description: " This Verilog module defines a synchronous 8-bit counter, where the count increments on each rising edge of the clock input (clk). Additionally, it features an asynchronous reset input (rst_n), which,0 when activated, sets the counter output (out) to zero regardless of the clock signal."
   language: "Verilog"  # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz: 50000000  # Clock frequency in Hz (or 0 if not applicable)
   tiles: "1x1" # How many tiles your design occupies? A single tile is about 167x108 uM. Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
@@ -15,7 +15,7 @@ project:  # design 32 bit binary counter.
 pinout:  # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
   # Inputs
   ui[0]: "clk"
-  ui[1]: "rst"
+  ui[1]: "rst_n"
   ui[2]: "ui_in[2]" # up count pin
   ui[3]: "ui_in[3]"  # down count pin
   ui[4]: "ui_in[4]"   # hold pin for freeze the present value 
